@@ -1,0 +1,27 @@
+# Minimal runtime deps for teleop server startup.
+# Keep this file lean; put optional tooling/training deps into requirements-optional.txt.
+addict==2.1.3
+av==12.3.0
+cloudpickle==3.1.1
+easydict==1.13
+GitPython==3.1.44
+gym==0.23.1
+h5py==3.13.0
+hid
+msgpack
+msgpack-numpy
+numpy==1.26.4
+opencv-python==4.11.0.86
+psutil==5.9.8
+Pympler==1.1
+pynput
+pynvml==12.0.0
+pyzmq
+redis==5.2.1
+requests==2.32.3
+scipy==1.15.2
+six==1.17.0
+torch
+websockets
+ntplib
+tensorboard==2.19.0

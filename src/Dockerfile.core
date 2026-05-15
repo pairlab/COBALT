@@ -1,0 +1,40 @@
+FROM python:3.10.15-slim
+
+WORKDIR /workspace
+
+# System dependencies needed by robosuite/LIBERO and pip git installs.
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    libgl1-mesa-glx \
+    libegl-dev \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy dependency source trees.
+COPY robosuite ./robosuite
+COPY LIBERO ./LIBERO
+COPY mimicgen ./mimicgen
+COPY robosuite-task-zoo ./robosuite-task-zoo
+
+RUN python -m pip install --upgrade pip
+
+# Install Robosuite.
+RUN cd /workspace/robosuite && python -m pip install -e .
+
+# Install LIBERO without overriding torch installation at this layer.
+RUN cd /workspace/LIBERO && \
+    grep -vE "torch|torchvision|torchio" requirements.txt > filtered_requirements.txt && \
+    python -m pip install -r filtered_requirements.txt && \
+    python -m pip install -e .
+
+# Install MimicGen.
+RUN cd /workspace/mimicgen && python -m pip install -e .
+
+# Install Robosuite Task Zoo.
+RUN cd /workspace/robosuite-task-zoo && python -m pip install -e .

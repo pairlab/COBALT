@@ -1,0 +1,37 @@
+{
+    "lift": {
+        "task": "Isaac-Lift-Cube-Franka-IK-Rel-v0",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "twoarmlift": {
+        "task": "Isaac-TwoArmLift-Cubes-Franka-IK-Rel-v0",
+        "timeout": -1,
+        "num_devices": 2
+    },
+    "stackCube": {
+        "task": "Isaac-Stack-Cube-Franka-IK-Rel-v0",
+        "timeout": 45,
+        "num_devices": 1
+    },
+    "bananaCleanup": {
+        "task": "Isaac-Cleanup-Franka-IK-Rel-v0",
+        "timeout": 60,
+        "num_devices": 1
+    },
+    "threePieceAssembly": {
+        "task": "Isaac-Assembly-Franka-IK-Rel-v0",
+        "timeout": 60,
+        "num_devices": 1
+    },
+    "mugPour": {
+        "task": "Isaac-Pour-Franka-IK-Rel-v0",
+        "timeout": 45,
+        "num_devices": 1
+    },
+    "kitchen": {
+        "task": "Isaac-Kitchen-Franka-IK-Rel-v0",
+        "timeout": 75,
+        "num_devices": 1
+    }
+}

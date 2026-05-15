@@ -1,0 +1,677 @@
+{
+    "lift": {
+        "task": "Lift",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "nutAssembly": {
+        "task": "NutAssembly",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "door": {
+        "task": "Door",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "wipe": {
+        "task": "Wipe",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "twoarmlift": {
+        "task": "TwoArmLift",
+        "timeout": -1,
+        "num_devices": 2
+    },
+    "libero_90-0": {
+        "task": "libero_90-0",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-1": {
+        "task": "libero_90-1",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-2": {
+        "task": "libero_90-2",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-3": {
+        "task": "libero_90-3",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-4": {
+        "task": "libero_90-4",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-5": {
+        "task": "libero_90-5",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-6": {
+        "task": "libero_90-6",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-7": {
+        "task": "libero_90-7",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-8": {
+        "task": "libero_90-8",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-9": {
+        "task": "libero_90-9",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-10": {
+        "task": "libero_90-10",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-11": {
+        "task": "libero_90-11",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-12": {
+        "task": "libero_90-12",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-13": {
+        "task": "libero_90-13",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-14": {
+        "task": "libero_90-14",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-15": {
+        "task": "libero_90-15",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-16": {
+        "task": "libero_90-16",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-17": {
+        "task": "libero_90-17",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-18": {
+        "task": "libero_90-18",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-19": {
+        "task": "libero_90-19",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-20": {
+        "task": "libero_90-20",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-21": {
+        "task": "libero_90-21",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-22": {
+        "task": "libero_90-22",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-23": {
+        "task": "libero_90-23",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-24": {
+        "task": "libero_90-24",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-25": {
+        "task": "libero_90-25",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-26": {
+        "task": "libero_90-26",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-27": {
+        "task": "libero_90-27",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-28": {
+        "task": "libero_90-28",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-29": {
+        "task": "libero_90-29",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-30": {
+        "task": "libero_90-30",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-31": {
+        "task": "libero_90-31",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-32": {
+        "task": "libero_90-32",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-33": {
+        "task": "libero_90-33",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-34": {
+        "task": "libero_90-34",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-35": {
+        "task": "libero_90-35",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-36": {
+        "task": "libero_90-36",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-37": {
+        "task": "libero_90-37",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-38": {
+        "task": "libero_90-38",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-39": {
+        "task": "libero_90-39",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-40": {
+        "task": "libero_90-40",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-41": {
+        "task": "libero_90-41",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-42": {
+        "task": "libero_90-42",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-43": {
+        "task": "libero_90-43",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-44": {
+        "task": "libero_90-44",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-45": {
+        "task": "libero_90-45",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-46": {
+        "task": "libero_90-46",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-47": {
+        "task": "libero_90-47",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-48": {
+        "task": "libero_90-48",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-49": {
+        "task": "libero_90-49",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-50": {
+        "task": "libero_90-50",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-51": {
+        "task": "libero_90-51",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-52": {
+        "task": "libero_90-52",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-53": {
+        "task": "libero_90-53",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-54": {
+        "task": "libero_90-54",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-55": {
+        "task": "libero_90-55",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-56": {
+        "task": "libero_90-56",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-57": {
+        "task": "libero_90-57",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-58": {
+        "task": "libero_90-58",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-59": {
+        "task": "libero_90-59",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-60": {
+        "task": "libero_90-60",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-61": {
+        "task": "libero_90-61",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-62": {
+        "task": "libero_90-62",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-63": {
+        "task": "libero_90-63",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-64": {
+        "task": "libero_90-64",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-65": {
+        "task": "libero_90-65",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-66": {
+        "task": "libero_90-66",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-67": {
+        "task": "libero_90-67",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-68": {
+        "task": "libero_90-68",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-69": {
+        "task": "libero_90-69",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-70": {
+        "task": "libero_90-70",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-71": {
+        "task": "libero_90-71",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-72": {
+        "task": "libero_90-72",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-73": {
+        "task": "libero_90-73",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-74": {
+        "task": "libero_90-74",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-75": {
+        "task": "libero_90-75",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-76": {
+        "task": "libero_90-76",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-77": {
+        "task": "libero_90-77",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-78": {
+        "task": "libero_90-78",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-79": {
+        "task": "libero_90-79",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-80": {
+        "task": "libero_90-80",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-81": {
+        "task": "libero_90-81",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-82": {
+        "task": "libero_90-82",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-83": {
+        "task": "libero_90-83",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-84": {
+        "task": "libero_90-84",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-85": {
+        "task": "libero_90-85",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-86": {
+        "task": "libero_90-86",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-87": {
+        "task": "libero_90-87",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-88": {
+        "task": "libero_90-88",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_90-89": {
+        "task": "libero_90-89",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-0": {
+        "task": "libero_10-0",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-1": {
+        "task": "libero_10-1",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-2": {
+        "task": "libero_10-2",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-3": {
+        "task": "libero_10-3",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-4": {
+        "task": "libero_10-4",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-5": {
+        "task": "libero_10-5",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-6": {
+        "task": "libero_10-6",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-7": {
+        "task": "libero_10-7",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-8": {
+        "task": "libero_10-8",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_10-9": {
+        "task": "libero_10-9",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-0": {
+        "task": "libero_spatial-0",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-1": {
+        "task": "libero_spatial-1",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-2": {
+        "task": "libero_spatial-2",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-3": {
+        "task": "libero_spatial-3",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-4": {
+        "task": "libero_spatial-4",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-5": {
+        "task": "libero_spatial-5",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-6": {
+        "task": "libero_spatial-6",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-7": {
+        "task": "libero_spatial-7",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-8": {
+        "task": "libero_spatial-8",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_spatial-9": {
+        "task": "libero_spatial-9",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-0": {
+        "task": "libero_object-0",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-1": {
+        "task": "libero_object-1",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-2": {
+        "task": "libero_object-2",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-3": {
+        "task": "libero_object-3",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-4": {
+        "task": "libero_object-4",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-5": {
+        "task": "libero_object-5",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-6": {
+        "task": "libero_object-6",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-7": {
+        "task": "libero_object-7",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-8": {
+        "task": "libero_object-8",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_object-9": {
+        "task": "libero_object-9",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-0": {
+        "task": "libero_goal-0",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-1": {
+        "task": "libero_goal-1",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-2": {
+        "task": "libero_goal-2",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-3": {
+        "task": "libero_goal-3",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-4": {
+        "task": "libero_goal-4",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-5": {
+        "task": "libero_goal-5",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-6": {
+        "task": "libero_goal-6",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-7": {
+        "task": "libero_goal-7",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-8": {
+        "task": "libero_goal-8",
+        "timeout": -1,
+        "num_devices": 1
+    },
+    "libero_goal-9": {
+        "task": "libero_goal-9",
+        "timeout": -1,
+        "num_devices": 1
+    }
+}

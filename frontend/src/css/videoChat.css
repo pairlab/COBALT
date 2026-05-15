@@ -1,0 +1,258 @@
+/* Overall page background */
+body {
+  background: #1d1e26;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container for the video component */
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 60px;
+  /* Set to match navbar height */
+}
+
+.video-stage {
+  position: relative;
+  width: min(92vw, 1400px);
+  height: min(76vh, 820px);
+  background: #0f1017;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.video-stage-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.camera-window {
+  background: #000;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.camera-window-main {
+  border-color: rgba(88, 155, 255, 0.75);
+}
+
+.camera-window-leftWrist,
+.camera-window-rightWrist {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.camera-window-label {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.68);
+  cursor: grab;
+  user-select: none;
+}
+
+.camera-window-label-right {
+  text-align: right;
+}
+
+.camera-window-video {
+  width: 100%;
+  height: calc(100% - 36px);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.camera-window-resize-cue {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  background-image: linear-gradient(135deg,
+      transparent 0 35%,
+      rgba(255, 255, 255, 0.85) 35% 45%,
+      transparent 45% 60%,
+      rgba(255, 255, 255, 0.65) 60% 70%,
+      transparent 70% 100%);
+  opacity: 0.9;
+}
+
+.camera-window-leftWrist .camera-window-resize-cue {
+  top: 8px;
+  right: 8px;
+  bottom: auto;
+}
+
+.camera-window-rightWrist .camera-window-resize-cue {
+  top: 8px;
+  left: 8px;
+  right: auto;
+  bottom: auto;
+}
+
+.resize-handle {
+  background: transparent;
+}
+
+.resize-handle-top,
+.resize-handle-bottom {
+  cursor: ns-resize;
+}
+
+.resize-handle-left,
+.resize-handle-right {
+  cursor: ew-resize;
+}
+
+.resize-handle-top-right,
+.resize-handle-bottom-left {
+  cursor: nesw-resize;
+}
+
+.resize-handle-top-left,
+.resize-handle-bottom-right {
+  cursor: nwse-resize;
+}
+
+/* Overlay for loading and error messages */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Spinner styling */
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid #ffffff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Status and error messages */
+.status-message {
+  font-size: 1.2rem;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  color: #ff8080;
+}
+
+/* Additional spacing for Try Again prompt */
+.try-again {
+  margin-top: 10px;
+}
+
+/* White settings box styling */
+.settings-box {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 30px;
+  width: min(92vw, 1400px);
+}
+
+/* Video settings styling */
+.video-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.video-label {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+.video-input {
+  padding: 8px;
+  border: 1px solid #0047ab;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.input-group .video-input {
+  flex: 1;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.video-button {
+  background: #0047ab;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.video-button:hover:not(:disabled) {
+  background: #004099;
+}
+
+.video-button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.disconnect-button {
+  background: #555555;
+}
+
+.disconnect-button:hover:not(:disabled) {
+  background: #444444;
+}
+
+@media (max-width: 1100px) {
+  .video-stage {
+    width: min(96vw, 960px);
+    height: min(74vh, 760px);
+  }
+}

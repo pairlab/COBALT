@@ -1,0 +1,188 @@
+# Extension fields for persistent volumes and environment variables
+x-default-core-volumes: &default-core-volumes
+  # Bind mounts for source repositories used in core (no IsaacLab) mode.
+  - type: bind
+    source: ../src/robosuite
+    target: /workspace/robosuite
+  - type: bind
+    source: ../src/LIBERO
+    target: /workspace/LIBERO
+  # Bind mounts for the teleop-server repository.
+  - type: bind
+    source: ./teleop-server
+    target: /app
+  - type: bind
+    source: ./teleop_data
+    target: "${TELEOP_DATA_DIR}"
+
+x-default-isaac-lab-volumes: &default-isaac-lab-volumes
+  # Persistent volumes for caches, logs, and data (avoiding re-compilation and re-download)
+  - type: volume
+    source: isaac-cache-kit
+    target: /isaac-sim/kit/cache
+  - type: volume
+    source: isaac-cache-ov
+    target: /root/.cache/ov
+  - type: volume
+    source: isaac-cache-pip
+    target: /root/.cache/pip
+  - type: volume
+    source: isaac-cache-gl
+    target: /root/.cache/nvidia/GLCache
+  - type: volume
+    source: isaac-cache-compute
+    target: /root/.nv/ComputeCache
+  - type: volume
+    source: isaac-logs
+    target: /root/.nvidia-omniverse/logs
+  - type: volume
+    source: isaac-carb-logs
+    target: /isaac-sim/kit/logs/Kit/Isaac-Sim
+  - type: volume
+    source: isaac-data
+    target: /root/.local/share/ov/data
+  - type: volume
+    source: isaac-docs
+    target: /root/Documents
+  # Bind mounts for your isaaclab repository (adjusted for your directory structure)
+  - type: bind
+    source: ../src/isaaclab/source
+    target: /workspace/isaaclab/source
+  - type: bind
+    source: ../src/isaaclab/docs
+    target: /workspace/isaaclab/docs
+  - type: bind
+    source: ../src/isaaclab/tools
+    target: /workspace/isaaclab/tools
+  # Bind mounts for robosuite and LIBERO
+  - type: bind
+    source: ../src/robosuite
+    target: /workspace/robosuite
+  - type: bind
+    source: ../src/LIBERO
+    target: /workspace/LIBERO
+  # Bind mounts for the teleop-server repository (adjusted for your directory structure)
+  - type: bind
+    source: ./teleop-server
+    target: /app
+  - type: bind
+    source: ./teleop_data
+    target: "${TELEOP_DATA_DIR}"
+  # Persistent volumes for built docs and logs
+  - type: volume
+    source: isaac-lab-docs
+    target: /workspace/isaaclab/docs/_build
+  - type: volume
+    source: isaac-lab-logs
+    target: /workspace/isaaclab/logs
+  - type: volume
+    source: isaac-lab-data
+    target: /workspace/isaaclab/data_storage  
+
+x-default-isaac-lab-deploy: &default-isaac-lab-deploy
+  resources:
+    reservations:
+      devices:
+        - driver: nvidia
+          count: all
+          capabilities: [ gpu ]
+
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+
+  websocket-server:
+    build: ./websocket-server
+    volumes:
+      - ./websocket-server/src:/app/src
+    env_file:
+      - docker.env
+    depends_on:
+      - redis
+    # ports:
+    #   - "${WEBSOCKET_SERVER_PORT}:${WEBSOCKET_SERVER_PORT}"
+
+  media-server:
+    build: ./media-server
+    volumes:
+      - ./media-server:/app
+    env_file:
+      - docker.env
+    depends_on:
+      - redis
+    # ports:
+    #   - "${MEDIA_SERVER_PORT}:${MEDIA_SERVER_PORT}"
+    network_mode: host
+    extra_hosts:
+      - "redis:127.0.0.1"
+
+  teleop-server:
+    profiles: ["core"]
+    build:
+      context: ./teleop-server
+      dockerfile: Dockerfile.core
+    volumes: *default-core-volumes
+    depends_on:
+      - websocket-server
+    env_file:
+      - docker.env
+    environment:
+      - TASK=${TASK:-lift}
+      - SIMULATOR=${SIMULATOR:-robosuite}
+    ports:
+      - 5678:5678
+    restart: always
+
+  teleop-server-isaaclab:
+    profiles: ["isaaclab"]
+    build:
+      context: ./teleop-server
+      dockerfile: Dockerfile.isaaclab
+    volumes: *default-isaac-lab-volumes
+    depends_on:
+      - websocket-server
+    deploy: *default-isaac-lab-deploy
+    env_file:
+      - docker.env
+    environment:
+      - TASK=${TASK:-lift}
+      - SIMULATOR=${SIMULATOR:-isaaclab}
+    ports:
+      - 5678:5678
+    restart: always
+
+  nginx-backend:
+    build: ./nginx
+    ports:
+      - "8080:8080"
+    environment:
+      - WEBSOCKET_SERVER_PORT=${WEBSOCKET_SERVER_PORT}
+      - MEDIA_SERVER_PORT=${MEDIA_SERVER_PORT}
+    depends_on:
+      - websocket-server
+      - media-server
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16   # Need this so that we can add firewall rule to forward requests to media-server from nginx
+  
+volumes:
+  isaac-cache-kit:
+  isaac-cache-ov:
+  isaac-cache-pip:
+  isaac-cache-gl:
+  isaac-cache-compute:
+  isaac-logs:
+  isaac-carb-logs:
+  isaac-data:
+  isaac-docs:
+  isaac-lab-docs:
+  isaac-lab-logs:
+  isaac-lab-data:

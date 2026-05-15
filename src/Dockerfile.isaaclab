@@ -1,0 +1,26 @@
+# Start from the official base
+FROM isaac-lab-base:latest
+
+# Set a working directory
+WORKDIR /workspace
+
+# Copy the source code for the dependencies INTO the image.
+COPY robosuite ./robosuite
+COPY LIBERO ./LIBERO
+COPY mimicgen ./mimicgen
+COPY robosuite-task-zoo ./robosuite-task-zoo
+
+# Install Robosuite
+RUN cd /workspace/robosuite && /isaac-sim/python.sh -m pip install -e .
+
+# Install LIBERO
+RUN cd /workspace/LIBERO && \
+    grep -vE "torch|torchvision|torchio" requirements.txt > filtered_requirements.txt && \
+    /isaac-sim/python.sh -m pip install -r filtered_requirements.txt && \
+    /isaac-sim/python.sh -m pip install -e .
+
+# Install Mimicgen
+RUN cd /workspace/mimicgen && /isaac-sim/python.sh -m pip install -e .
+
+# Install Robosuite Task Zoo
+RUN cd /workspace/robosuite-task-zoo && /isaac-sim/python.sh -m pip install -e .

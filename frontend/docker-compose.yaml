@@ -1,0 +1,22 @@
+services:
+  teleop-frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_INTERVAL=1000
+    env_file:
+      - docker.env
+
+  nginx-frontend:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - teleop-frontend
+    env_file:
+      - docker.env

@@ -1,0 +1,30 @@
+# 1. Base image for CPU-friendly default setup.
+FROM cobalt-simulators-core:latest
+
+# Set default working directory
+WORKDIR /app
+
+# 2. Copy requirements first (for better caching)
+COPY requirements-core.txt .
+
+# 3. Install Python dependencies
+RUN python -m pip install -r requirements-core.txt
+
+# 4. Now copy your remaining source code
+COPY . .
+
+# 5. (Optional) Install your teleop server as an editable package
+RUN python -m pip install -e .
+
+# 7. Environment variables for acceptance of licenses
+ENV ACCEPT_EULA=Y
+ENV PRIVACY_CONSENT=Y
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH="/workspace/LIBERO:/app"
+
+# Need to do this to prevent interactive prompts during libero import
+RUN echo "n" | python -c "from libero.libero import get_libero_path; print('LIBERO environment primed.')"
+
+# 7. Set default command to run your server in headless mode
+ENTRYPOINT ["python"]
+CMD ["server/server.py", "--headless"]

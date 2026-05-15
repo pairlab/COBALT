@@ -1,0 +1,17 @@
+[submodule "src/isaaclab"]
+	path = src/isaaclab
+	url = https://github.com/pairlab/cobalt-isaaclab
+	branch = release
+[submodule "src/robosuite"]
+	path = src/robosuite
+	url = https://github.com/ARISE-Initiative/robosuite
+	branch = v1.4
+[submodule "src/LIBERO"]
+	path = src/LIBERO
+	url = https://github.com/Lifelong-Robot-Learning/LIBERO
+[submodule "src/mimicgen"]
+	path = src/mimicgen
+	url = https://github.com/NVlabs/mimicgen
+[submodule "src/robosuite-task-zoo"]
+	path = src/robosuite-task-zoo
+	url = https://github.com/ARISE-Initiative/robosuite-task-zoo
