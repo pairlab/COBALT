@@ -451,15 +451,40 @@ func registerHTTPHandlers() {
 	http.Handle("/answer", chainMiddleware(http.HandlerFunc(handleAnswer), corsMiddleware, recoverMiddleware))
 }
 
+func normalizeICEServerURL(raw string) (string, error) {
+	raw = strings.TrimSpace(raw)
+	if raw == "" {
+		return "", fmt.Errorf("empty URL")
+	}
+	lower := strings.ToLower(raw)
+	if strings.HasPrefix(lower, "stun:") || strings.HasPrefix(lower, "turn:") || strings.HasPrefix(lower, "turns:") {
+		return raw, nil
+	}
+	// Allow host/IP with optional port (e.g. 192.168.1.10 or 192.168.1.10:3478).
+	if !strings.Contains(raw, ":") {
+		raw = raw + ":3478"
+	}
+	return "turn:" + raw, nil
+}
+
 func loadTURNServers() {
 	// Parse TURN servers from the environment variables
 	for i := 1; ; i++ {
-		url := os.Getenv("TURN_SERVER_" + strconv.Itoa(i) + "_URL")
-		if url == "" {
+		prefix := "TURN_SERVER_" + strconv.Itoa(i) + "_"
+		rawURL := os.Getenv(prefix + "URL")
+		if rawURL == "" {
 			break // No more TURN servers
 		}
-		username := os.Getenv("TURN_SERVER_" + strconv.Itoa(i) + "_USERNAME")
-		credential := os.Getenv("TURN_SERVER_" + strconv.Itoa(i) + "_CREDENTIAL")
+		url, err := normalizeICEServerURL(rawURL)
+		if err != nil {
+			log.Printf("Skipping TURN server %d: %v", i, err)
+			continue
+		}
+		username := os.Getenv(prefix + "USERNAME")
+		credential := os.Getenv(prefix + "CREDENTIAL")
+		if credential == "" {
+			credential = os.Getenv(prefix + "PASSWORD")
+		}
 
 		turnServers = append(turnServers, TurnServer{
 			URL:        url,
@@ -534,6 +559,10 @@ func main() {
 	// Set up WebRTC API with custom UDP port range
 	settingEngine := webrtc.SettingEngine{}
 	settingEngine.SetEphemeralUDPPortRange(minUDPPort, maxUDPPort)
+	if publicIP := strings.TrimSpace(os.Getenv("MEDIA_SERVER_PUBLIC_IP")); publicIP != "" {
+		settingEngine.SetNAT1To1IPs([]string{publicIP}, webrtc.ICECandidateTypeHost)
+		log.Printf("ICE host candidates use public IP: %s", publicIP)
+	}
 	fmt.Printf("Ephemeral UDP Port Range %d:%d\n", minUDPPort, maxUDPPort)
 
 	// Create a new WebRTC API instance with the custom setting engine.

@@ -112,11 +112,9 @@ services:
       - docker.env
     depends_on:
       - redis
-    # ports:
-    #   - "${MEDIA_SERVER_PORT}:${MEDIA_SERVER_PORT}"
-    network_mode: host
-    extra_hosts:
-      - "redis:127.0.0.1"
+    ports:
+      - "${MEDIA_SERVER_PORT}:${MEDIA_SERVER_PORT}"
+      - "${MEDIA_SERVER_UDP_PORT_MIN}-${MEDIA_SERVER_UDP_PORT_MAX}:${MEDIA_SERVER_UDP_PORT_MIN}-${MEDIA_SERVER_UDP_PORT_MAX}/udp"
 
   teleop-server:
     profiles: ["core"]
@@ -163,8 +161,6 @@ services:
     depends_on:
       - websocket-server
       - media-server
-    extra_hosts:
-      - host.docker.internal:host-gateway
 
 networks:
   default:

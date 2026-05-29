@@ -50,9 +50,7 @@ def generate_nginx_backend_conf(domain, overwrite):
         }}
 
         location /media/ {{
-            # When using host network mode for the media server,
-            # use host.docker.internal to reference the host's network
-            proxy_pass http://host.docker.internal:${{MEDIA_SERVER_PORT}}/;
+            proxy_pass http://media-server:${{MEDIA_SERVER_PORT}}/;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
         }}
@@ -69,6 +67,25 @@ def generate_nginx_backend_conf(domain, overwrite):
         print(f"✓ Skipped generating nginx backend configuration (file exists and overwrite not allowed): {output_path}")
 
     return output_path
+
+
+def set_media_server_public_ip(ip_address: str) -> None:
+    """Set MEDIA_SERVER_PUBLIC_IP in docker.env for WebRTC in Docker."""
+    path = Path(__file__).parent / "docker.env"
+    key = "MEDIA_SERVER_PUBLIC_IP"
+    lines = path.read_text().splitlines() if path.exists() else []
+    updated = False
+    new_lines = []
+    for line in lines:
+        if line.startswith(f"{key}="):
+            new_lines.append(f"{key}={ip_address}")
+            updated = True
+        else:
+            new_lines.append(line)
+    if not updated:
+        new_lines.append(f"{key}={ip_address}")
+    path.write_text("\n".join(new_lines) + "\n")
+    print(f"✓ Set {key} in docker.env")
 
 
 def main():
@@ -111,6 +128,7 @@ Examples:
     try:
         # Generate configuration files
         generate_nginx_backend_conf(domain, args.overwrite)
+        set_media_server_public_ip(domain)
 
     except Exception as e:
         print(f"\n❌ Error during setup: {e}")
