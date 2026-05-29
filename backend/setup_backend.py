@@ -36,28 +36,28 @@ def generate_nginx_backend_conf(domain, overwrite):
     """Generate the nginx backend configuration file."""
 
     template = f"""server {{
-    listen 8080;
-    listen [::]:8080;
-    server_name {domain};  # Server domain
+        listen 8080;
+        listen [::]:8080;
+        server_name {domain};  # Server domain
 
-    location ~ /ws$ {{
-        proxy_pass http://websocket-server:${{WEBSOCKET_SERVER_PORT}};
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }}
+        location ~ /ws$ {{
+            proxy_pass http://websocket-server:${{WEBSOCKET_SERVER_PORT}};
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }}
 
-    location /media/ {{
-        # When using host network mode for the media server,
-        # use host.docker.internal to reference the host's network
-        proxy_pass http://host.docker.internal:${{MEDIA_SERVER_PORT}}/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
+        location /media/ {{
+            # When using host network mode for the media server,
+            # use host.docker.internal to reference the host's network
+            proxy_pass http://host.docker.internal:${{MEDIA_SERVER_PORT}}/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }}
     }}
-}}
-"""
+    """
 
     output_path = Path(__file__).parent / "nginx" / "backend.conf.template"
 

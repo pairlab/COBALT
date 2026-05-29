@@ -110,7 +110,7 @@ Examples:
         ip_address = get_local_ip()
         print(f"Auto-detected IP address: {ip_address}")
     else:
-        ip_address = args.ip
+        ip_address = args.domain
         if not validate_ip(ip_address):
             print(f"Error: Invalid IP address format: {ip_address}")
             sys.exit(1)

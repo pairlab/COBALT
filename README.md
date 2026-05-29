@@ -75,7 +75,7 @@ sudo ufw allow from 172.18.0.0/16 to any port 5001 proto tcp
 sudo ufw allow 49152:65535/udp
 ```
 
-> **Port Customization:** External ports can be modified in `backend/nginx/backend.conf.template` and `frontend/nginx/frontend.conf`. Internal service ports are configured in `backend/docker.env` and `frontend/docker.env`.
+> **Port Customization:** External ports can be modified in `backend/nginx/backend.conf.template` and `frontend/nginx/frontend.conf.template`. Internal service ports are configured in `backend/docker.env` and `frontend/docker.env`.
 
 ## Usage
 
