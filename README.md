@@ -5,7 +5,6 @@ Ayush Agarwal*, Ansh Gandhi*, Jeremy A. Collins, Omar Rayyan, Aryan Sarswat, Ran
 [![Website](https://img.shields.io/badge/Website-cobalt--teleop.github.io-0a84ff?logo=google-chrome&logoColor=white&style=flat)](https://cobalt-teleop.github.io/)
 [![arXiv](https://img.shields.io/badge/arXiv-2506.14198-b31b1b.svg?logo=arXiv&logoColor=white&style=flat)](https://arxiv.org/abs/2605.19138v2)
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white&style=flat)](https://www.python.org)
-![license](https://img.shields.io/github/license/pairlab/AMPLIFY?style=flat&cacheSeconds=1)
 
 This repo contains the official implementation for COBALT: Crowdsourcing Robot Learning via Cloud-Based Teleoperation with Smartphones. COBALT is a platform for collecting robot demonstrations through smartphone-based teleoperation. It enables crowdsourced data collection for robot learning by allowing users to control robots remotely using their mobile devices. It is easily deployable to the cloud.
 
