@@ -357,7 +357,7 @@ class Rate(object):
             hz (int): frequency to enforce
         """
         self.hz = hz
-        self.last_time = time.time()
+        self.last_time = time.monotonic()
         self.sleep_duration = 1.0 / hz
 
     def _remaining(self, curr_time):
@@ -373,7 +373,7 @@ class Rate(object):
         Attempt to sleep at the specified rate in hz, by taking the time
         elapsed since the last call to this function into account.
         """
-        curr_time = time.time()
+        curr_time = time.monotonic()
         remaining = self._remaining(curr_time)
         if remaining > 0:
             time.sleep(remaining)
