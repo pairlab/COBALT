@@ -37,25 +37,13 @@ git submodule update --init --recursive
 ```bash
 cd backend
 ./setup.sh
-python setup_backend.py
 ```
 
 **Optional IsaacLab setup (GPU required):**
 ```bash
 cd backend
 ./setup.sh --with-isaaclab
-python setup_backend.py
 ```
-
-#### 3. Frontend Setup
-
-```bash
-cd ../frontend
-python setup_frontend.py
-```
-
-> **Note:** Setup scripts automatically detect your public IP address for nginx configuration. To use a custom domain, pass it as an argument: `python setup_backend.py --domain your-domain.com` or `python setup_frontend.py --domain your-domain.com`
-
 ### Firewall Configuration
 
 COBALT uses nginx as a reverse proxy to route requests to different services. Configure your firewall based on your deployment scenario:

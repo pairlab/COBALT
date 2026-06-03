@@ -186,6 +186,5 @@ cython_debug/
 /backend/processed_data
 
 *.conf
-*.template
 
 .vscode/
