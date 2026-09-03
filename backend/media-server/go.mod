@@ -7,7 +7,7 @@ toolchain go1.23.7
 require (
 	github.com/joho/godotenv v1.5.1
 	github.com/pion/webrtc/v4 v4.0.13
-	github.com/redis/go-redis/v9 v9.7.1
+	github.com/redis/go-redis/v9 v9.7.3
 )
 
 require (
